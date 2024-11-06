@@ -24,7 +24,6 @@ def category_prediction(endpoint, log_key):
         # Extract the keys from the specified section
         config = config_file()
         api_keys = [value for _, value in config.items("gemini_api_key")]
-        #api_keys ['AIzaSyBDMCaABlYpNSOkbsjdr1ukyIyq-z-9P_k']
 
         for api_key in api_keys:
             try:
