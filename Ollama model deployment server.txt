@@ -1,0 +1,26 @@
+# Commads for setting up ollama and pulling llama
+
+## this command will create an image and container of ollama
+### for cpu
+docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+
+### for gpu
+docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+
+
+## go inside the container
+docker exec -it ollama sh
+
+## wrtie ollama commands
+ollama pull llama3.1
+
+
+## for using llama3.1 on terminal
+ollama run llama3.1
+
+## for RESTFUL api
+- hit localhost:11434
+
+## for accessing the port to your local machine you need make port forwarding (write this to your local machine)
+ssh -L 11434:localhost:11434 user@remote_server_ip 
+ 
