@@ -1,0 +1,21 @@
+## To pull docker image
+docker pull ankane/pgvector
+
+## docker run command on cpu
+docker run --name pgvector-demo -e POSTGRES_PASSWORD=test -p 5433:5432 ankane/pgvector
+
+## docker run command on gpu (-d is to run in background)
+docker run -d --gpus all   --name pgvector-demo   -e POSTGRES_PASSWORD=test   -p 5433:5432   ankane/pgvector
+
+## Install postgresql client 
+sudo apt install postgresql-client -y
+
+## To access docker container
+psql -h localhost -p 5433 -U postgres
+
+## To create databse and extension
+CREATE DATABASE vector_db;
+CREATE EXTENSION vector;
+
+
+
